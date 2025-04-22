@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/deel-clone/static/css/main.25cc0b6b.css",
+    "main.js": "/deel-clone/static/js/main.0a906ac8.js",
+    "index.html": "/deel-clone/index.html",
+    "main.25cc0b6b.css.map": "/deel-clone/static/css/main.25cc0b6b.css.map",
+    "main.0a906ac8.js.map": "/deel-clone/static/js/main.0a906ac8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25cc0b6b.css",
+    "static/js/main.0a906ac8.js"
+  ]
+}
