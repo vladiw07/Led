@@ -52,7 +52,8 @@ function Hero() {
                 {/* Right Content - Placeholder Image */}
                 <div className="flex-1">
                     <div className="rounded-xl flex items-center justify-center text-gray-500">
-                        <img src='/images/heroSectionImage.png' alt="" />
+                    <img src={`${process.env.PUBLIC_URL}/images/heroSectionImage.png`} alt="hero" />
+
                     </div>
                 </div>
 
