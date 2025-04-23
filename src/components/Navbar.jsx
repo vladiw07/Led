@@ -6,7 +6,7 @@ function Navbar() {
   <div className="max-w-[86.5rem] mx-auto px-6 py-4 flex justify-between items-center">
     
     {/* Logo */}
-    <div className="text-4xl font-bold cursor-pointer hover:text-gray-600">deel.</div>
+    <div className="text-4xl font-bold cursor-pointer hover:text-gray-600 select-none touch-none">deel.</div>
 
     {/* Nav Links */}
     <ul className="hidden md:flex gap-8 text-gray-700 text-sm font-bold text-[15px]">
