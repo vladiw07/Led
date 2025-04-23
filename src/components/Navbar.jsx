@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../ui/Button';
 
 function Navbar() {
   return (
@@ -21,9 +22,7 @@ function Navbar() {
     {/* CTA Buttons */}
     <div className="flex items-center gap-4">
       <button className="text-sm text-gray-700 hover:border-gray-400 transition font-bold border rounded-3xl py-2 px-3.5 border-2 border-gray-300">Log In</button>
-      <button className="px-4 py-2.5 text-white font-bold rounded-3xl text-sm bg-black transition hover:opacity-80">
-        Book a demo
-      </button>
+      <Button label={'Book a demo'} />
     </div>
 
   </div>
