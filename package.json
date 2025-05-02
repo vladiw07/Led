@@ -6,10 +6,13 @@
   "dependencies": {
     "cra-template": "1.3.0",
     "daisyui": "^5.0.27",
+    "framer-motion": "^12.9.4",
+    "lucide-react": "^0.503.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
-    "react-typed": "^2.0.12"
+    "react-typed": "^2.0.12",
+    "tailwind-scrollbar": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

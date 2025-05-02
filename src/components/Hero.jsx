@@ -15,7 +15,7 @@ function Hero() {
     return (
         <section style={{
             clipPath: 'polygon(0% 0%, 100% 0%, 100% 97%, 88% 100%, 50% 97%, 10% 100%, 0% 97%)',
-          }} className="w-full bg-[#a9d6fe] from-gray-50 to-white pt-44 pb-[260px]" > 
+          }} className="w-full bg-[#a9d6fe] pt-10 sm:pt-16 md:pt-12 lg:pt-44 pb-[260px]" > 
             <div className="max-w-[86.5rem] mx-auto px-10 flex flex-col lg:flex-row items-center justify-between gap-5">
 
                 {/* Left Content */}

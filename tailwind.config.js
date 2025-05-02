@@ -5,6 +5,7 @@ module.exports = {
   ],
   theme: {
   extend: {
+    
     clipPath: {
       heroClip: 'polygon(0 0, 100% 0, 100% 85%, 0% 100%)',
     },
@@ -27,9 +28,12 @@ module.exports = {
       },
     },
   },
+  
 },
   plugins: [
     require("daisyui"),
     require("tailwind-clip-path"),
+    require('tailwind-scrollbar'),
+    
   ],
 }
