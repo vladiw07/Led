@@ -41,7 +41,7 @@ function AllInOnePlatform() {
   const content = tabs.find(tab => tab.key === activeTab);
 
   return (
-    <section className="py-20 bg-[#FFFBF4] flex flex-col items-center px-4">
+    <section className="py-20 text-black bg-[#FFFBF4] flex flex-col items-center px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
         Deel is your all-in-one <br /> Global People Platform
       </h2>
