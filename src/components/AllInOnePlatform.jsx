@@ -212,7 +212,7 @@ function AllInOnePlatform() {
         bgColor="#ffe27c"
       />
       <FeatureCard
-        image={`${process.env.PUBLIC_URL}/images/DeelHrImage4.png`}
+        image={`${process.env.PUBLIC_URL}/images/DeelHrImageFour.png`}
         title="Deel Engage"
         description="Foster a high-performance culture with a centralized, AI-powered people suite to manage development, performance, and training programs."
         layout="imageBottom"
