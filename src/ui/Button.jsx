@@ -1,12 +1,14 @@
 import React from 'react';
 
-
-function Button( { label }) {
-  
- 
-
+function Button({ label, bgColor = '#1c1c1c', textColor = 'white' }) {
   return (
-    <button className='px-4 py-2.5 text-white font-semibold rounded-3xl text-sm bg-[#1c1c1c] transition hover:opacity-80'>
+    <button
+      className={`px-4 py-2.5 font-semibold rounded-3xl text-1xl transition hover:opacity-80`}
+      style={{
+        backgroundColor: bgColor,
+        color: textColor
+      }}
+    >
       {label}
     </button>
   );

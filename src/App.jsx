@@ -1,10 +1,12 @@
 import './App.css';
 import AllInOnePlatform from './components/AllInOnePlatform';
 import DeelImpact from './components/DeelImpact';
+import GlobalComplianceHub from './components/GlobalComplianceHub';
 import GlobalTrust from './components/GlobalTrust';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ValueProp from './components/ValueProp';
+import TwistedDivider from './ui/TwistedDivider';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <GlobalTrust />
       <DeelImpact />
       <AllInOnePlatform />
+      <GlobalComplianceHub />
     </div>
   );
 }

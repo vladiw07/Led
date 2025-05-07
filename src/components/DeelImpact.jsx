@@ -14,7 +14,7 @@ const DeelImpact = () => {
           {/* First Section */}
           <div className="flex flex-col items-center lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <img
-              src={`${process.env.PUBLIC_URL}/images/deelImpact1.png`}
+              src={`${process.env.PUBLIC_URL}/images/deelImpact/image1.png`}
               alt="500K workers"
               className="w-32 h-32 object-cover"
             />
@@ -27,7 +27,7 @@ const DeelImpact = () => {
           {/* Second Section */}
           <div className="flex flex-col items-center lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <img
-              src={`${process.env.PUBLIC_URL}/images/deelImpact2.png`}
+              src={`${process.env.PUBLIC_URL}/images/deelImpact/image2.png`}
               alt="35K businesses"
               className="w-32 h-32 object-cover"
             />
@@ -40,7 +40,7 @@ const DeelImpact = () => {
           {/* Third Section */}
           <div className="flex flex-col items-center lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <img
-              src={`${process.env.PUBLIC_URL}/images/deelImpact3.png`}
+              src={`${process.env.PUBLIC_URL}/images/deelImpact/image3.png`}
               alt="10B payroll"
               className="w-42 h-24 object-cover" 
             />
