@@ -166,14 +166,14 @@ function AllInOnePlatform() {
 
     <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
       <FeatureCard
-        image={`${process.env.PUBLIC_URL}/images/PayrollImageFive.png`}
+        image={`${process.env.PUBLIC_URL}/images/deelPayroll/image5.png`}
         title="Deel PEO (Professional Employer Organization)"
         description="Drive team success and unlock powerful insights with our suite of AI-powered products to manage goals, performance, learning development, team satisfaction, and more."
         layout="imageBottom"
         bgColor="#B1D8FC"
       />
       <FeatureCard
-        image={`${process.env.PUBLIC_URL}/images/PayrollImageSix.png`}
+        image={`${process.env.PUBLIC_URL}/images/deelPayroll/image6.png`}
         title="Deel US Payroll"
         description="Pay US employees through a self-serve platform with automated local payroll tax calculations, built-in compliance, and seamless integrations."
         layout="imageTop"

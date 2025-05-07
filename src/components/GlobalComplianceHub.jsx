@@ -9,7 +9,7 @@ function GlobalComplianceHub() {
       <TwistedDivider />
 
       {/* Content Section */}
-      <section className="relative bg-[#1B1B1B] text-white py-20 px-4">
+      <section className="relative bg-[#1B1B1B] text-white py-20 px-4 -mt-[1px]">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-sm md:text-base font-medium mb-6 uppercase text-[#faf4eebf]">
             Global Compliance
@@ -72,10 +72,73 @@ function GlobalComplianceHub() {
 
   <Button label="Get started" bgColor="white" textColor="black" />
 </div>
+<div className="max-w-7xl mx-auto px-4 py-20">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 text-left text-white">
+    {/* 1 - Powerful reporting */}
+    <div>
+      <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image1.svg`} alt="Powerful reporting" className="w-16 h-16 mb-4" />
+      <h3 className="text-2xl font-semibold mb-2">Powerful reporting</h3>
+      <p className="text-lg text-white/90">
+        Unlock unrivalled insights into spending and performance with compensation, OKRs, equity and more for your team in one system.
+      </p>
+    </div>
+
+    {/* 2 - Scalability */}
+    <div>
+      <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image2.svg`} alt="Scalability" className="w-16 h-16 mb-4" />
+      <h3 className="text-2xl font-semibold mb-2">Scalability</h3>
+      <p className="text-lg text-white/90">
+        From contractors and EOR to payroll and PEO, Deel’s the only platform that can evolve with every stage of your company’s growth.
+      </p>
+    </div>
+
+    {/* 3 - Dedicated support */}
+    <div>
+      <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image3.svg`} alt="Dedicated support" className="w-16 h-16 mb-4" />
+      <h3 className="text-2xl font-semibold mb-2">Dedicated support</h3>
+      <p className="text-lg text-white/90">
+        We don’t rely on third parties, which means you’ll get a single dedicated POC to work alongside with and guaranteed 1.25 min FRT.
+      </p>
+    </div>
+
+    {/* 4 - Trusted partner */}
+    <div>
+      <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image4.svg`} alt="Trusted partner" className="w-16 h-16 mb-4" />
+      <h3 className="text-2xl font-semibold mb-2">Trusted partner</h3>
+      <p className="text-lg text-white/90">
+        Engage with one partner for your global growth. From M&As to entity set up, partner with our in-house team for all your expansion needs.
+      </p>
+    </div>
+
+    {/* 5 - Seamless integration */}
+    <div>
+      <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image5.svg`} alt="Seamless integration" className="w-16 h-16 mb-4" />
+      <h3 className="text-2xl font-semibold mb-2">Seamless integration</h3>
+      <p className="text-lg text-white/90">
+        Eliminate data silos and reduce manual work with 100+ integrations across your entire tech stack, from accounting to expenses.
+      </p>
+    </div>
+
+    {/* 6 - Unrivalled security */}
+    <div>
+      <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image6.svg`} alt="Unrivalled security" className="w-16 h-16 mb-4" />
+      <h3 className="text-2xl font-semibold mb-2">Unrivalled security</h3>
+      <p className="text-lg text-white/90">
+        Connect your company in a single secure platform. Our platform is GDPR, SOC2, and ISO 27001 compliant.
+      </p>
+    </div>
+  </div>
+</div>
+
 
       </section>
+
+      {/* Twisted Divider Below the Section */}
+      <div className="rotate-180 overflow-hidden">
+        <TwistedDivider bgColor='#ffeba6' />
+      </div>
     </>
   )
 }
 
-export default GlobalComplianceHub
+export default GlobalComplianceHub;

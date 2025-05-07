@@ -2,6 +2,7 @@ import './App.css';
 import AllInOnePlatform from './components/AllInOnePlatform';
 import DeelImpact from './components/DeelImpact';
 import GlobalComplianceHub from './components/GlobalComplianceHub';
+import GlobalCoverage from './components/GlobalCoverage';
 import GlobalTrust from './components/GlobalTrust';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
@@ -18,6 +19,7 @@ function App() {
       <DeelImpact />
       <AllInOnePlatform />
       <GlobalComplianceHub />
+      <GlobalCoverage />
     </div>
   );
 }
