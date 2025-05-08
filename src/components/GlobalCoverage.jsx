@@ -3,18 +3,18 @@ import Button from '../ui/Button'
 
 function GlobalCoverage() {
   return (
-    <div className="relative bg-[#ffeba6] min-h-[1030px] py-20 px-4 overflow-hidden">
+    <div className="relative bg-[#ffeba6] min-h-[980px] py-20 px-4 overflow-hidden">
       {/* Decorative Background Image at bottom */}
       <img
   src={`${process.env.PUBLIC_URL}/images/globalCoverageImage.png`}
   alt="Global Coverage"
-  className="absolute bottom-0 right-0 min-w-[1200px] h-auto z-0 pointer-events-none"
+  className="absolute bottom-0 right-0 min-w-[1200px] h-auto z-0  pointer-events-none"
 />
 
       {/* Foreground Content */}
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 h-full">
-        {/* Text Section - Left */}
-        <div className="flex-1 text-left">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 min-h-[400px]">
+        
+        <div className="flex-1 text-center lg:text-left md:text-left">
           <h2 className="text-sm md:text-base font-bold mb-6 uppercase text-[#333]">
             Global Coverage
           </h2>

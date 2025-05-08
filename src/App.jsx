@@ -1,6 +1,8 @@
 import './App.css';
 import AllInOnePlatform from './components/AllInOnePlatform';
+import CustomerStories from './components/CustomerStories';
 import DeelImpact from './components/DeelImpact';
+import GettingStartedSteps from './components/GettingStartedSteps';
 import GlobalComplianceHub from './components/GlobalComplianceHub';
 import GlobalCoverage from './components/GlobalCoverage';
 import GlobalTrust from './components/GlobalTrust';
@@ -11,7 +13,7 @@ import TwistedDivider from './ui/TwistedDivider';
 
 function App() {
   return (
-    <div className="App overflow-x-hidden">
+    <div className="App bg-[#fef4e3] overflow-x-hidden">
       <Navbar />
       <Hero />
       <ValueProp />
@@ -20,6 +22,8 @@ function App() {
       <AllInOnePlatform />
       <GlobalComplianceHub />
       <GlobalCoverage />
+      <CustomerStories />
+      <GettingStartedSteps />
     </div>
   );
 }
