@@ -1,3 +1,4 @@
+import Footer from './components/Footer';
 import './App.css';
 import AllInOnePlatform from './components/AllInOnePlatform';
 import CustomerStories from './components/CustomerStories';
@@ -24,6 +25,7 @@ function App() {
       <GlobalCoverage />
       <CustomerStories />
       <GettingStartedSteps />
+      <Footer />
     </div>
   );
 }
