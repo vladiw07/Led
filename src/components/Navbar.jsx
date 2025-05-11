@@ -68,7 +68,7 @@ function Navbar() {
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 bg-white text-black" />
               )}
             </button>
           </div>
