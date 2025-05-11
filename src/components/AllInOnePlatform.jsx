@@ -44,43 +44,43 @@ function AllInOnePlatform() {
   const direction = tabs.findIndex(tab => tab.key === activeTab) > tabs.findIndex(tab => tab.key === prevTab) ? 1 : -1;
   const content = tabs.find(tab => tab.key === activeTab);
 
-  // Animation variants for feature cards container - much faster now
+  // Animation variants for feature cards container - smoother now
   const containerVariants = {
     hidden: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 800 : -800,
       opacity: 0,
     }),
     visible: {
       x: 0,
       opacity: 1,
       transition: {
-        type: "tween", // Changed from spring to tween for more instant motion
-        duration: 0.2, // Very short duration
+        type: "tween",
+        duration: 0.25,
         ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.05, // Reduced stagger time
+        staggerChildren: 0.03,
       }
     },
     exit: (direction) => ({
-      x: direction < 0 ? 1000 : -1000, // Fixed direction consistency
+      x: direction < 0 ? 800 : -800,
       opacity: 0,
       transition: {
-        type: "tween", // Changed from spring to tween
-        duration: 0.2, // Very short duration
+        type: "tween",
+        duration: 0.25,
         ease: "easeIn",
       }
     })
   };
 
-  // Animation variants for individual feature cards - much faster now
+  // Animation variants for individual feature cards - smoother now
   const itemVariants = {
-    hidden: { opacity: 0, y: 10 }, // Reduced y distance
+    hidden: { opacity: 0, y: 5 }, // Reduced y distance even more
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
-        type: "tween", // Changed from spring to tween
-        duration: 0.15, // Very short duration
+        type: "tween",
+        duration: 0.2,
         ease: "easeOut",
       }
     }
@@ -114,12 +114,11 @@ function AllInOnePlatform() {
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3 }}
               >
-                <motion.img
+                {/* Removed the rotation animation that was causing shaking */}
+                <img
                   src={tab.img}
                   alt={tab.label}
                   className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 mb-1"
-                  animate={{ rotate: isActive ? [0, -10, 10, -5, 5, 0] : 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 />
                 <span className="font-semibold text-xs xs:text-sm sm:text-base md:text-lg whitespace-nowrap">{tab.label}</span>
               </motion.button>
@@ -150,8 +149,8 @@ function AllInOnePlatform() {
               scale: 1
             }}
             transition={{ 
-              type: "tween", // Changed from spring to tween
-              duration: 0.001, // Very short duration
+              type: "tween",
+              duration: 0.25,
               ease: "easeOut",
             }}
             className="absolute text-center text-lg text-[#1B1B1B] w-full font-medium"
