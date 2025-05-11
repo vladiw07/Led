@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/deel-clone/static/css/main.5731c091.css",
-    "main.js": "/deel-clone/static/js/main.3dedf247.js",
+    "main.css": "/deel-clone/static/css/main.53db6256.css",
+    "main.js": "/deel-clone/static/js/main.5b6e0aff.js",
     "index.html": "/deel-clone/index.html",
-    "main.5731c091.css.map": "/deel-clone/static/css/main.5731c091.css.map",
-    "main.3dedf247.js.map": "/deel-clone/static/js/main.3dedf247.js.map"
+    "main.53db6256.css.map": "/deel-clone/static/css/main.53db6256.css.map",
+    "main.5b6e0aff.js.map": "/deel-clone/static/js/main.5b6e0aff.js.map"
   },
   "entrypoints": [
-    "static/css/main.5731c091.css",
-    "static/js/main.3dedf247.js"
+    "static/css/main.53db6256.css",
+    "static/js/main.5b6e0aff.js"
   ]
 }
