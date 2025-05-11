@@ -30,9 +30,12 @@ function GlobalTrust() {
   const containerRef = useRef(null);
   const [isLeftDisabled, setIsLeftDisabled] = useState(false);
   const [isRightDisabled, setIsRightDisabled] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
   
 
-  // Function to handle scrolling
+  // Function to handle scrolling with buttons
   const scroll = (direction) => {
     const container = containerRef.current;
     if (!container) return;
@@ -47,14 +50,59 @@ function GlobalTrust() {
     });
   };
   
+  // Mouse down event handler for drag scrolling
+  const handleMouseDown = (e) => {
+    if (!containerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - containerRef.current.offsetLeft);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
+
+  // Mouse leave event handler
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  // Mouse up event handler
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Mouse move event handler for drag scrolling
+  const handleMouseMove = (e) => {
+    if (!isDragging || !containerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Touch handlers for mobile
+  const handleTouchStart = (e) => {
+    if (!containerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - containerRef.current.offsetLeft);
+    setScrollLeft(containerRef.current.scrollLeft);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging || !containerRef.current) return;
+    const x = e.touches[0].pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
 
   // Check the scroll position on each render to adjust button color
   const checkScrollPosition = () => {
     const container = containerRef.current;
     if (container) {
-      setIsLeftDisabled(container.scrollLeft === 0);
+      setIsLeftDisabled(container.scrollLeft <= 10); // Small threshold for better UX
       setIsRightDisabled(
-        container.scrollLeft + container.clientWidth === container.scrollWidth
+        container.scrollLeft + container.clientWidth >= container.scrollWidth - 10
       );
     }
   };
@@ -86,10 +134,9 @@ function GlobalTrust() {
     <section className="py-20 bg-[#FFFBF4]">
       <div className="mx-auto">
         {/* Header and Buttons */}
-        <div className='max-w-[86.5rem] mx-auto'>
+        <div className='max-w-[86.5rem] mx-auto px-4'>
           <div className="flex items-start justify-between mb-10 flex-col lg:flex-row gap-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center xl:text-start lg:text-start md:text-start font-bold text-gray-900 max-w-4xl">
-
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center xl:text-start lg:text-start md:text-start font-bold text-gray-900 max-w-4xl">
               Why companies around the world prefer <br /> Deel for expanding their team globally.
             </h2>
             <div className="hidden lg:flex md:flex gap-3 mt-4 lg:mt-0 order-2 lg:order-none self-center">
@@ -119,16 +166,23 @@ function GlobalTrust() {
         <div>
           <div
             ref={containerRef}
-            className="flex overflow-x-auto no-scrollbar gap-6 scroll-smooth pl-4 pr-4 sm:pl-16 sm:pr-16 md:pl-32 md:pr-32 lg:pl-[250px] lg:pr-[250px]"
+            className="flex overflow-x-auto no-scrollbar gap-6 scroll-smooth pl-4 pr-4 sm:pl-16 sm:pr-16 md:pl-32 md:pr-32 lg:pl-[250px] lg:pr-[250px] cursor-grab active:cursor-grabbing"
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="min-w-[90%] sm:min-w-[500px] md:min-w-[530px] relative p-6 rounded-2xl shadow-md"
+                className="min-w-[90%] sm:min-w-[500px] md:min-w-[530px] relative p-6 rounded-2xl shadow-md select-none"
                 style={{ backgroundColor: bgColors[index] }}
               >
-                <p className="text-gray-800 text-2xl text-md mb-12">"{testimonial.text}"</p>
-                <p className="absolute bottom-6 left-6 font-semibold text-gray-900">{testimonial.author}</p>
+                <p className="text-gray-800 text-2xl text-md mb-12 select-none">"{testimonial.text}"</p>
+                <p className="absolute bottom-6 left-6 font-semibold text-gray-900 select-none">{testimonial.author}</p>
               </div>
             ))}
           </div>
