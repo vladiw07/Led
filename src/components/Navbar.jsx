@@ -61,14 +61,14 @@ function Navbar() {
           {/* Mobile menu icon */}
           <div className="lg:hidden">
             <button 
-              className="btn btn-ghost btn-circle"
+              className="p-2 rounded-full bg-transparent hover:bg-gray-100 transition-colors focus:outline-none"
               onClick={toggleMenu}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-gray-700" />
               ) : (
-                <Menu className="w-6 h-6 bg-white text-black" />
+                <Menu className="w-6 h-6 text-gray-700" />
               )}
             </button>
           </div>
