@@ -44,6 +44,48 @@ function AllInOnePlatform() {
   const direction = tabs.findIndex(tab => tab.key === activeTab) > tabs.findIndex(tab => tab.key === prevTab) ? 1 : -1;
   const content = tabs.find(tab => tab.key === activeTab);
 
+  // Animation variants for feature cards container - much faster now
+  const containerVariants = {
+    hidden: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "tween", // Changed from spring to tween for more instant motion
+        duration: 0.2, // Very short duration
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.05, // Reduced stagger time
+      }
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 1000 : -1000, // Fixed direction consistency
+      opacity: 0,
+      transition: {
+        type: "tween", // Changed from spring to tween
+        duration: 0.2, // Very short duration
+        ease: "easeIn",
+      }
+    })
+  };
+
+  // Animation variants for individual feature cards - much faster now
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 }, // Reduced y distance
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "tween", // Changed from spring to tween
+        duration: 0.15, // Very short duration
+        ease: "easeOut",
+      }
+    }
+  };
+
   return (
     <section className="py-20 text-black bg-[#FFFBF4] flex flex-col items-center px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
@@ -70,9 +112,6 @@ function AllInOnePlatform() {
                   boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)" 
                 }}
                 whileTap={{ scale: 0.98 }}
-                animate={{ 
-                  y: isActive ? -5 : 0
-                }}
                 transition={{ duration: 0.3 }}
               >
                 <motion.img
@@ -91,7 +130,7 @@ function AllInOnePlatform() {
       </div>
 
       {/* Animated Tab Content */}
-      <div className="relative h-24 flex items-center justify-center overflow-hidden w-full max-w-3xl bg-white/30 rounded-xl p-4">
+      <div className="relative h-24 flex items-center justify-center overflow-hidden w-full max-w-3xl bg-white/30 rounded-xl p-4 mb-8">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={content.key}
@@ -111,10 +150,9 @@ function AllInOnePlatform() {
               scale: 1
             }}
             transition={{ 
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
-              duration: 0.5 
+              type: "tween", // Changed from spring to tween
+              duration: 0.001, // Very short duration
+              ease: "easeOut",
             }}
             className="absolute text-center text-lg text-[#1B1B1B] w-full font-medium"
           >
@@ -123,196 +161,218 @@ function AllInOnePlatform() {
         </AnimatePresence>
       </div>
 
+      {/* Feature Cards with Animation */}
+      <AnimatePresence mode="wait" custom={direction} initial={false}>
+        {activeTab === 'Deel Payroll' && (
+          <motion.div 
+            className='flex flex-col gap-[35px] w-full'
+            key="payroll"
+            custom={direction}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelPayroll/image1.png`}
+                title="Deel EOR (Employer of Record)"
+                description="Hire and onboard employees in 130+ countries compliantly and quickly without opening an entity, minimizing risks related to taxes, benefits, or labor laws."
+                layout="imageBottom"
+                bgColor="#B1D8FC"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelPayroll/image2.png`}
+                title="Deel Contractor Management"
+                description="Onboard, manage, and pay global contractors with a user-friendly, self-serve platform that drastically reduces HR and payroll admin time."
+                layout="imageTop"
+                bgColor="#B1D8FC"
+                imageWidth="85%"
+              />
+            </motion.div>
 
-        {/* Feature Cards */}
-      {activeTab === 'Deel Payroll' && (
-      <div className='flex flex-col gap-[35px]'>
+            <motion.div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelPayroll/image3.png`}
+                title="Deel Contractor of Record"
+                description="Reduce misclassification risk—let us classify and manage your global contractors."
+                layout="imageTop"
+                bgColor="#B1D8FC"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelPayroll/image4.png`}
+                title="Deel Global Payroll"
+                description="Streamline international payroll, compliance, tax deductions, filings, and more in 130+ countries, backed by our team of in-house payroll experts."
+                layout="imageBottom"
+                bgColor="#B1D8FC"
+                imageWidth="85%"
+              />
+            </motion.div>
 
-        
-        <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto">
+            <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelPayroll/image5.png`}
+                title="Deel PEO (Professional Employer Organization)"
+                description="Drive team success and unlock powerful insights with our suite of AI-powered products to manage goals, performance, learning development, team satisfaction, and more."
+                layout="imageBottom"
+                bgColor="#B1D8FC"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelPayroll/image6.png`}
+                title="Deel US Payroll"
+                description="Pay US employees through a self-serve platform with automated local payroll tax calculations, built-in compliance, and seamless integrations."
+                layout="imageTop"
+                bgColor="#B1D8FC"
+                imageWidth="67%"
+              />
+            </motion.div>
+          </motion.div>
+        )}
 
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelPayroll/image1.png`}
-            title="Deel EOR (Employer of Record)"
-            description="Hire and onboard employees in 130+ countries compliantly and quickly without opening an entity, minimizing risks related to taxes, benefits, or labor laws."
-            layout="imageBottom"
-            bgColor="#B1D8FC"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelPayroll/image2.png`}
-            title="Deel Contractor Management"
-            description="Onboard, manage, and pay global contractors with a user-friendly, self-serve platform that drastically reduces HR and payroll admin time."
-            layout="imageTop"
-            bgColor="#B1D8FC"
-            imageWidth="85%"
-          />
-        </div>
+        {activeTab === 'Deel HR' && (
+          <motion.div 
+            className='flex flex-col gap-[35px] w-full'
+            key="hr"
+            custom={direction}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelHr/image1.png`}
+                title="Deel Compensation"
+                description="Streamline compensation planning with a centralized, collaborative workspace for pay bands, compensation review cycles, and pay transparency. "
+                layout="imageBottom"
+                bgColor="#ffe27c"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelHr/image2.png`}
+                title="Deel Benefits Admin"
+                description="Manage benefits with an employee self-serve platform to build plans automatically synced with payroll and integrated with carriers."
+                layout="imageTop"
+                bgColor="#ffe27c"
+                imageWidth="85%"
+              />
+            </motion.div>
 
-        <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelPayroll/image3.png`}
-            title="Deel Contractor of Record"
-            description="Reduce misclassification risk—let us classify and manage your global contractors."
-            layout="imageTop"
-            bgColor="#B1D8FC"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelPayroll/image4.png`}
-            title="Deel Global Payroll"
-            description="Streamline international payroll, compliance, tax deductions, filings, and more in 130+ countries, backed by our team of in-house payroll experts."
-            layout="imageBottom"
-            bgColor="#B1D8FC"
-            imageWidth="85%"
-          />
-        </div>
-
-        <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelPayroll/image5.png`}
-            title="Deel PEO (Professional Employer Organization)"
-            description="Drive team success and unlock powerful insights with our suite of AI-powered products to manage goals, performance, learning development, team satisfaction, and more."
-            layout="imageBottom"
-            bgColor="#B1D8FC"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelPayroll/image6.png`}
-            title="Deel US Payroll"
-            description="Pay US employees through a self-serve platform with automated local payroll tax calculations, built-in compliance, and seamless integrations."
-            layout="imageTop"
-            bgColor="#B1D8FC"
-            imageWidth="67%"
-          />
-        </div>
-      </div>
-    )}
-      {activeTab === 'Deel HR' && (
-        <div className='flex flex-col gap-[35px]'>
-            <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelHr/image1.png`}
-            title="Deel Compensation"
-            description="Streamline compensation planning with a centralized, collaborative workspace for pay bands, compensation review cycles, and pay transparency. "
-            layout="imageBottom"
-            bgColor="#ffe27c"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelHr/image2.png`}
-            title="Deel Benefits Admin"
-            description="Manage benefits with an employee self-serve platform to build plans automatically synced with payroll and integrated with carriers."
-            layout="imageTop"
-            bgColor="#ffe27c"
-            imageWidth="85%"
-          />
-        </div>
-
-        <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelHr/image4.png`}
-            title="Deel Workforce Planning"
-            description="Collaborate on smarter, end-to-end planning with automated approvals, real-time data, and AI insights for confident, strategic decision-making."
-            layout="imageTop"
-            bgColor="#ffe27c"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelHr/image3.png`}
-            title="Deel Engage"
-            description="Foster a high-performance culture with a centralized, AI-powered people suite to manage development, performance, and training programs."
-            layout="imageBottom"
-            bgColor="#ffe27c"
-            imageWidth="85%"
-          />
-        </div>
-        </div>
-
-    )}
+            <motion.div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelHr/image4.png`}
+                title="Deel Workforce Planning"
+                description="Collaborate on smarter, end-to-end planning with automated approvals, real-time data, and AI insights for confident, strategic decision-making."
+                layout="imageTop"
+                bgColor="#ffe27c"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelHr/image3.png`}
+                title="Deel Engage"
+                description="Foster a high-performance culture with a centralized, AI-powered people suite to manage development, performance, and training programs."
+                layout="imageBottom"
+                bgColor="#ffe27c"
+                imageWidth="85%"
+              />
+            </motion.div>
+          </motion.div>
+        )}
 
         {activeTab === 'Deel IT' && (
-        <div className='flex flex-col gap-[35px]'>
-            <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelIt/itImage1.png`}
-            title="Device Lifecycle Management"
-            description="Manage global equipment configuration, deployment, repairs, loaners, recovery, storage, and disposal for a fixed monthly cost."
-            layout="imageBottom"
-            bgColor="#c4b1f9"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelIt/itImage2.png`}
-            title="Mobile Device Management"
-            description="Automate compliance with real-time monitoring, keep device fleets up-to-date with the latest patches, and enhance visibility and control."
-            layout="imageTop"
-            bgColor="#c4b1f9"
-            imageWidth="85%"
-          />
-        </div>
+          <motion.div 
+            className='flex flex-col gap-[35px] w-full'
+            key="it"
+            custom={direction}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelIt/itImage1.png`}
+                title="Device Lifecycle Management"
+                description="Manage global equipment configuration, deployment, repairs, loaners, recovery, storage, and disposal for a fixed monthly cost."
+                layout="imageBottom"
+                bgColor="#c4b1f9"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelIt/itImage2.png`}
+                title="Mobile Device Management"
+                description="Automate compliance with real-time monitoring, keep device fleets up-to-date with the latest patches, and enhance visibility and control."
+                layout="imageTop"
+                bgColor="#c4b1f9"
+                imageWidth="85%"
+              />
+            </motion.div>
 
-        <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelIt/itImage3.png`}
-            title="Endpoint protection"
-            description="Protect devices and workers from advanced cyber attacks, unauthorized access, data theft, and more."
-            layout="imageTop"
-            bgColor="#c4b1f9"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelIt/itImage4.png`}
-            title="Identity and access management"
-            description="Manage access to critical business tools like apps and devices in real-time, speed up onboarding, strengthen compliance, and secure company assets."
-            layout="imageBottom"
-            bgColor="#c4b1f9"
-            imageWidth="85%"
-          />
-        </div>
-        </div>
-
-    )}
+            <motion.div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelIt/itImage3.png`}
+                title="Endpoint protection"
+                description="Protect devices and workers from advanced cyber attacks, unauthorized access, data theft, and more."
+                layout="imageTop"
+                bgColor="#c4b1f9"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelIt/itImage4.png`}
+                title="Identity and access management"
+                description="Manage access to critical business tools like apps and devices in real-time, speed up onboarding, strengthen compliance, and secure company assets."
+                layout="imageBottom"
+                bgColor="#c4b1f9"
+                imageWidth="85%"
+              />
+            </motion.div>
+          </motion.div>
+        )}
 
         {activeTab === 'Deel Services' && (
-      <div className='flex flex-col gap-[35px]'>
-        <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelServices/image1.png`}
-            title="Immigration"
-            description="Manage immigration and secure visas for international hires with an intuitive dashboard and eliminate the need for costly law firms or local entities."
-            layout="imageBottom"
-            bgColor="#B1D8FC"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelServices/image2.png`}
-            title="Entity set up "
-            description="Simplify global expansion with our dedicated in-house local HR managers, equity advisors, payroll managers, legal teams and 110+ owned entities. "
-            layout="imageTop"
-            bgColor="#B1D8FC"
-            imageWidth="85%"
-          />
-        </div>
+          <motion.div 
+            className='flex flex-col gap-[35px] w-full'
+            key="services"
+            custom={direction}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelServices/image1.png`}
+                title="Immigration"
+                description="Manage immigration and secure visas for international hires with an intuitive dashboard and eliminate the need for costly law firms or local entities."
+                layout="imageBottom"
+                bgColor="#B1D8FC"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelServices/image2.png`}
+                title="Entity set up "
+                description="Simplify global expansion with our dedicated in-house local HR managers, equity advisors, payroll managers, legal teams and 110+ owned entities. "
+                layout="imageTop"
+                bgColor="#B1D8FC"
+                imageWidth="85%"
+              />
+            </motion.div>
 
-        <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelServices/image3.png`}
-            title="Background checks"
-            description="Automate new hire screening with fast, frictionless employment background checks integrated into onboarding and reduce time-to-hire in 190+ countries."
-            layout="imageTop"
-            bgColor="#B1D8FC"
-          />
-          <FeatureCard
-            image={`${process.env.PUBLIC_URL}/images/deelServices/image4.png`}
-            title="Equity consulting"
-            description="In-house specialists simplify tax reporting, automate admin, and oversee all compensation so you can navigate global tax and regulatory complexities."
-            layout="imageBottom"
-            bgColor="#B1D8FC"
-            imageWidth="85%"
-          />
-        </div>
-
-        
-        </div>
-      
-    )}
-
-
-
-
+            <motion.div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelServices/image3.png`}
+                title="Background checks"
+                description="Automate new hire screening with fast, frictionless employment background checks integrated into onboarding and reduce time-to-hire in 190+ countries."
+                layout="imageTop"
+                bgColor="#B1D8FC"
+              />
+              <FeatureCard
+                image={`${process.env.PUBLIC_URL}/images/deelServices/image4.png`}
+                title="Equity consulting"
+                description="In-house specialists simplify tax reporting, automate admin, and oversee all compensation so you can navigate global tax and regulatory complexities."
+                layout="imageBottom"
+                bgColor="#B1D8FC"
+                imageWidth="85%"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

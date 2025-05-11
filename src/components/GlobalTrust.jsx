@@ -64,6 +64,8 @@ function GlobalTrust() {
     const container = containerRef.current;
     if (container) {
       container.addEventListener('scroll', checkScrollPosition);
+      // Initial check
+      checkScrollPosition();
     }
     return () => {
       if (container) {
@@ -72,13 +74,22 @@ function GlobalTrust() {
     };
   }, []);
 
+  // Also check scroll position on window resize
+  useEffect(() => {
+    window.addEventListener('resize', checkScrollPosition);
+    return () => {
+      window.removeEventListener('resize', checkScrollPosition);
+    };
+  }, []);
+
   return (
     <section className="py-20 bg-[#FFFBF4]">
-      <div className=" mx-auto">
+      <div className="mx-auto">
         {/* Header and Buttons */}
         <div className='max-w-[86.5rem] mx-auto'>
           <div className="flex items-start justify-between mb-10 flex-col lg:flex-row gap-4">
-            <h2 className="text-7xl md:text-4xl font-bold text-gray-900 max-w-4xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center xl:text-start lg:text-start md:text-start font-bold text-gray-900 max-w-4xl">
+
               Why companies around the world prefer <br /> Deel for expanding their team globally.
             </h2>
             <div className="hidden lg:flex md:flex gap-3 mt-4 lg:mt-0 order-2 lg:order-none self-center">
@@ -105,48 +116,45 @@ function GlobalTrust() {
         </div>
 
         {/* Testimonial Cards */}
-{/* Testimonial Cards */}
-<div>
-  <div
-    ref={containerRef}
-    className="flex overflow-x-auto gap-6 scroll-smooth pl-4 pr-4 sm:pl-16 sm:pr-16 md:pl-32 md:pr-32 lg:pl-[250px] lg:pr-[250px]"
-  >
-    {testimonials.map((testimonial, index) => (
-      <div
-        key={index}
-        className="min-w-[90%] sm:min-w-[500px] md:min-w-[530px] relative p-6 rounded-2xl shadow-md"
-        style={{ backgroundColor: bgColors[index] }}
-      >
-        <p className="text-gray-800 text-2xl text-md mb-12">“{testimonial.text}”</p>
-        <p className="absolute bottom-6 left-6 font-semibold text-gray-900">{testimonial.author}</p>
-      </div>
-    ))}
-  </div>
-</div>
+        <div>
+          <div
+            ref={containerRef}
+            className="flex overflow-x-auto no-scrollbar gap-6 scroll-smooth pl-4 pr-4 sm:pl-16 sm:pr-16 md:pl-32 md:pr-32 lg:pl-[250px] lg:pr-[250px]"
+          >
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="min-w-[90%] sm:min-w-[500px] md:min-w-[530px] relative p-6 rounded-2xl shadow-md"
+                style={{ backgroundColor: bgColors[index] }}
+              >
+                <p className="text-gray-800 text-2xl text-md mb-12">"{testimonial.text}"</p>
+                <p className="absolute bottom-6 left-6 font-semibold text-gray-900">{testimonial.author}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-{/* 👇 Add buttons here */}
-<div className="flex justify-center gap-3 mt-8 lg:hidden md:hidden">
-  <button
-    onClick={() => scroll('left')}
-    className={`bg-black text-white w-12 h-12 shadow-sm rounded-full p-2 ${
-      isLeftDisabled ? 'opacity-10' : 'hover:opacity-60'
-    }`}
-    disabled={isLeftDisabled}
-  >
-    <ArrowLeft size={20} className="m-auto" />
-  </button>
-  <button
-    onClick={() => scroll('right')}
-    className={`bg-black text-white w-12 h-12 shadow-sm rounded-full p-2 ${
-      isRightDisabled ? 'opacity-10' : 'hover:opacity-60'
-    }`}
-    disabled={isRightDisabled}
-  >
-    <ArrowRight size={20} className="m-auto" />
-  </button>
-</div>
-
-
+        {/* Mobile buttons */}
+        <div className="flex justify-center gap-3 mt-8 lg:hidden md:hidden">
+          <button
+            onClick={() => scroll('left')}
+            className={`bg-black text-white w-12 h-12 shadow-sm rounded-full p-2 ${
+              isLeftDisabled ? 'opacity-10' : 'hover:opacity-60'
+            }`}
+            disabled={isLeftDisabled}
+          >
+            <ArrowLeft size={20} className="m-auto" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className={`bg-black text-white w-12 h-12 shadow-sm rounded-full p-2 ${
+              isRightDisabled ? 'opacity-10' : 'hover:opacity-60'
+            }`}
+            disabled={isRightDisabled}
+          >
+            <ArrowRight size={20} className="m-auto" />
+          </button>
+        </div>
       </div>
     </section>
   );
