@@ -164,7 +164,7 @@ function AllInOnePlatform() {
       />
     </div>
 
-    <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
+    <div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto">
       <FeatureCard
         image={`${process.env.PUBLIC_URL}/images/deelPayroll/image5.png`}
         title="Deel PEO (Professional Employer Organization)"
@@ -205,14 +205,14 @@ function AllInOnePlatform() {
 
     <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto">
       <FeatureCard
-        image={`${process.env.PUBLIC_URL}/images/deelHr/image3.png`}
+        image={`${process.env.PUBLIC_URL}/images/deelHr/image4.png`}
         title="Deel Workforce Planning"
         description="Collaborate on smarter, end-to-end planning with automated approvals, real-time data, and AI insights for confident, strategic decision-making."
         layout="imageTop"
         bgColor="#ffe27c"
       />
       <FeatureCard
-        image={`${process.env.PUBLIC_URL}/images/deelHr/image4.png`}
+        image={`${process.env.PUBLIC_URL}/images/deelHr/image3.png`}
         title="Deel Engage"
         description="Foster a high-performance culture with a centralized, AI-powered people suite to manage development, performance, and training programs."
         layout="imageBottom"
