@@ -34,6 +34,8 @@ module.exports = {
     require("daisyui"),
     require("tailwind-clip-path"),
     require('tailwind-scrollbar'),
+    require('@tailwindcss/postcss'),
+    require('autoprefixer'),
     
     function({ addUtilities }) {
       const newUtilities = {
