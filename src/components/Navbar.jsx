@@ -42,7 +42,7 @@ function Navbar() {
     <nav className="font-inter w-full bg-white shadow-sm fixed top-0 left-0 z-50">
       <div className="max-w-[86.5rem] mx-auto px-6 py-4 flex justify-between items-center h-[80px]">
         {/* Logo */}
-        <div className="text-2xl font-bold cursor-pointer hover:text-gray-600 text-black">deel.</div>
+        <div className="text-2xl font-bold cursor-pointer hover:text-gray-600 text-black">Led</div>
 
         {/* Nav Links - Desktop */}
         <ul className="hidden lg:flex gap-8 text-gray-700 text-sm font-bold text-[15px]">

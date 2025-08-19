@@ -4,47 +4,47 @@ import FeatureCard from '../ui/FeatureCard';
 
 const tabs = [
   {
-    key: 'Deel Payroll',
-    label: 'Deel Payroll',
+    key: 'Led Payroll',
+    label: 'Led Payroll',
     img: `${process.env.PUBLIC_URL}/images/deelPayroll/payrollImage.svg`,
-    
     activeBg: 'bg-[#B1D8FC] text-black',
     hoverBg: 'hover:bg-[#B1D8FC]'
   },
   {
-    key: 'Deel HR',
-    label: 'Deel HR',
+    key: 'Led HR',
+    label: 'Led HR',
     img: `${process.env.PUBLIC_URL}/images/deelHr/hrImage.svg`,
-    
     activeBg: 'bg-[#ffe27c] text-black',
     hoverBg: 'hover:bg-[#ffe27c]'
   },
   {
-    key: 'Deel IT',
-    label: 'Deel IT',
+    key: 'Led IT',
+    label: 'Led IT',
     img: `${process.env.PUBLIC_URL}/images/deelIt/itImage.svg`,
-    
     activeBg: 'bg-[#c4b1f9] text-black',
     hoverBg: 'hover:bg-[#c4b1f9]'
   },
   {
-    key: 'Deel Services',
-    label: 'Deel Services',
+    key: 'Led Services',
+    label: 'Led Services',
     img: `${process.env.PUBLIC_URL}/images/deelServices/servicesImage.svg`,
-    
     activeBg: 'bg-[#B1D8FC] text-black',
     hoverBg: 'hover:bg-[#B1D8FC]'
   }
 ];
 
 function AllInOnePlatform() {
-  const [activeTab, setActiveTab] = useState('Deel Payroll');
-  const [prevTab, setPrevTab] = useState('Deel Payroll');
+  const [activeTab, setActiveTab] = useState('Led Payroll');
+  const [prevTab, setPrevTab] = useState('Led Payroll');
 
-  const direction = tabs.findIndex(tab => tab.key === activeTab) > tabs.findIndex(tab => tab.key === prevTab) ? 1 : -1;
+  const direction =
+    tabs.findIndex(tab => tab.key === activeTab) >
+    tabs.findIndex(tab => tab.key === prevTab)
+      ? 1
+      : -1;
+
   const content = tabs.find(tab => tab.key === activeTab);
 
-  // Animation variants for feature cards container - smoother now
   const containerVariants = {
     hidden: (direction) => ({
       x: direction > 0 ? 800 : -800,
@@ -72,9 +72,8 @@ function AllInOnePlatform() {
     })
   };
 
-  // Animation variants for individual feature cards - smoother now
   const itemVariants = {
-    hidden: { opacity: 0, y: 5 }, // Reduced y distance even more
+    hidden: { opacity: 0, y: 5 },
     visible: { 
       opacity: 1, 
       y: 0,
@@ -89,7 +88,7 @@ function AllInOnePlatform() {
   return (
     <section className="py-20 text-black bg-[#FFFBF4] flex flex-col items-center px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-        Deel is your all-in-one <br /> Global People Platform
+        Led is your all-in-one <br /> Global People Platform
       </h2>
 
       {/* Tab Cards */}
@@ -98,7 +97,7 @@ function AllInOnePlatform() {
           {tabs.map((tab) => {
             const isActive = tab.key === activeTab;
             return (
-                <motion.button
+              <motion.button
                 key={tab.key}
                 onClick={() => {
                   setPrevTab(activeTab); 
@@ -108,61 +107,41 @@ function AllInOnePlatform() {
                   ${isActive ? tab.activeBg : `bg-[#FEF0D8] text-black ${tab.hoverBg}`}
                   flex-1
                 `}
-                whileHover={{ 
-                  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)" 
-                }}
+                whileHover={{ boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)" }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Removed the rotation animation that was causing shaking */}
                 <img
                   src={tab.img}
                   alt={tab.label}
                   className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 mb-1"
                 />
-                <span className="font-semibold text-xs xs:text-sm sm:text-base md:text-lg whitespace-nowrap">{tab.label}</span>
+                <span className="font-semibold text-xs xs:text-sm sm:text-base md:text-lg whitespace-nowrap">
+                  {tab.label}
+                </span>
               </motion.button>
-              
             );
           })}
         </div>
       </div>
 
-      {/* Animated Tab Content */}
+      {/* Animated Tab Content (placeholder) */}
       <div className="relative h-24 flex items-center justify-center overflow-hidden w-full max-w-3xl bg-white/30 rounded-xl p-4 mb-8">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={content.key}
-            initial={{ 
-              x: direction > 0 ? 300 : -300, 
-              opacity: 0,
-              scale: 1
-            }}
-            animate={{ 
-              x: 0, 
-              opacity: 1,
-              scale: 1
-            }}
-            exit={{ 
-              x: direction < 0 ? 300 : -300, 
-              opacity: 0,
-              scale: 1
-            }}
-            transition={{ 
-              type: "tween",
-              duration: 0.25,
-              ease: "easeOut",
-            }}
+            initial={{ x: direction > 0 ? 300 : -300, opacity: 0, scale: 1 }}
+            animate={{ x: 0, opacity: 1, scale: 1 }}
+            exit={{ x: direction < 0 ? 300 : -300, opacity: 0, scale: 1 }}
+            transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
             className="absolute text-center text-lg text-[#1B1B1B] w-full font-medium"
-          >
-           
-          </motion.div>
+          />
         </AnimatePresence>
       </div>
 
       {/* Feature Cards with Animation */}
       <AnimatePresence mode="wait" custom={direction} initial={false}>
-        {activeTab === 'Deel Payroll' && (
+        {activeTab === 'Led Payroll' && (
           <motion.div 
             className='flex flex-col gap-[35px] w-full'
             key="payroll"
@@ -175,14 +154,14 @@ function AllInOnePlatform() {
             <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelPayroll/image1.png`}
-                title="Deel EOR (Employer of Record)"
+                title="Led EOR (Employer of Record)"
                 description="Hire and onboard employees in 130+ countries compliantly and quickly without opening an entity, minimizing risks related to taxes, benefits, or labor laws."
                 layout="imageBottom"
                 bgColor="#B1D8FC"
               />
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelPayroll/image2.png`}
-                title="Deel Contractor Management"
+                title="Led Contractor Management"
                 description="Onboard, manage, and pay global contractors with a user-friendly, self-serve platform that drastically reduces HR and payroll admin time."
                 layout="imageTop"
                 bgColor="#B1D8FC"
@@ -193,14 +172,14 @@ function AllInOnePlatform() {
             <motion.div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelPayroll/image3.png`}
-                title="Deel Contractor of Record"
+                title="Led Contractor of Record"
                 description="Reduce misclassification risk—let us classify and manage your global contractors."
                 layout="imageTop"
                 bgColor="#B1D8FC"
               />
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelPayroll/image4.png`}
-                title="Deel Global Payroll"
+                title="Led Global Payroll"
                 description="Streamline international payroll, compliance, tax deductions, filings, and more in 130+ countries, backed by our team of in-house payroll experts."
                 layout="imageBottom"
                 bgColor="#B1D8FC"
@@ -211,14 +190,14 @@ function AllInOnePlatform() {
             <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelPayroll/image5.png`}
-                title="Deel PEO (Professional Employer Organization)"
+                title="Led PEO (Professional Employer Organization)"
                 description="Drive team success and unlock powerful insights with our suite of AI-powered products to manage goals, performance, learning development, team satisfaction, and more."
                 layout="imageBottom"
                 bgColor="#B1D8FC"
               />
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelPayroll/image6.png`}
-                title="Deel US Payroll"
+                title="Led US Payroll"
                 description="Pay US employees through a self-serve platform with automated local payroll tax calculations, built-in compliance, and seamless integrations."
                 layout="imageTop"
                 bgColor="#B1D8FC"
@@ -228,7 +207,7 @@ function AllInOnePlatform() {
           </motion.div>
         )}
 
-        {activeTab === 'Deel HR' && (
+        {activeTab === 'Led HR' && (
           <motion.div 
             className='flex flex-col gap-[35px] w-full'
             key="hr"
@@ -241,14 +220,14 @@ function AllInOnePlatform() {
             <motion.div className="flex flex-col md:grid md:grid-cols-[3fr_2fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelHr/image1.png`}
-                title="Deel Compensation"
-                description="Streamline compensation planning with a centralized, collaborative workspace for pay bands, compensation review cycles, and pay transparency. "
+                title="Led Compensation"
+                description="Streamline compensation planning with a centralized, collaborative workspace for pay bands, compensation review cycles, and pay transparency."
                 layout="imageBottom"
                 bgColor="#ffe27c"
               />
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelHr/image2.png`}
-                title="Deel Benefits Admin"
+                title="Led Benefits Admin"
                 description="Manage benefits with an employee self-serve platform to build plans automatically synced with payroll and integrated with carriers."
                 layout="imageTop"
                 bgColor="#ffe27c"
@@ -259,14 +238,14 @@ function AllInOnePlatform() {
             <motion.div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] gap-8 max-w-[78rem] items-stretch mx-auto" variants={itemVariants}>
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelHr/image4.png`}
-                title="Deel Workforce Planning"
+                title="Led Workforce Planning"
                 description="Collaborate on smarter, end-to-end planning with automated approvals, real-time data, and AI insights for confident, strategic decision-making."
                 layout="imageTop"
                 bgColor="#ffe27c"
               />
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelHr/image3.png`}
-                title="Deel Engage"
+                title="Led Engage"
                 description="Foster a high-performance culture with a centralized, AI-powered people suite to manage development, performance, and training programs."
                 layout="imageBottom"
                 bgColor="#ffe27c"
@@ -276,7 +255,7 @@ function AllInOnePlatform() {
           </motion.div>
         )}
 
-        {activeTab === 'Deel IT' && (
+        {activeTab === 'Led IT' && (
           <motion.div 
             className='flex flex-col gap-[35px] w-full'
             key="it"
@@ -324,7 +303,7 @@ function AllInOnePlatform() {
           </motion.div>
         )}
 
-        {activeTab === 'Deel Services' && (
+        {activeTab === 'Led Services' && (
           <motion.div 
             className='flex flex-col gap-[35px] w-full'
             key="services"
@@ -344,8 +323,8 @@ function AllInOnePlatform() {
               />
               <FeatureCard
                 image={`${process.env.PUBLIC_URL}/images/deelServices/image2.png`}
-                title="Entity set up "
-                description="Simplify global expansion with our dedicated in-house local HR managers, equity advisors, payroll managers, legal teams and 110+ owned entities. "
+                title="Entity set up"
+                description="Simplify global expansion with our dedicated in-house local HR managers, equity advisors, payroll managers, legal teams and 110+ owned entities."
                 layout="imageTop"
                 bgColor="#B1D8FC"
                 imageWidth="85%"

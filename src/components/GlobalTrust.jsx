@@ -7,19 +7,19 @@ const testimonials = [
     author: 'Jadd Baya',
   },
   {
-    text: "The best payroll solution, period. We've used every payroll solution out there - Gusto, Rippling, you name it - and Deel is the only one that is simple, easy to use, and global. We've used it for 4 years and haven't looked back.",
+    text: "The best payroll solution, period. We've used every payroll solution out there - Gusto, Rippling, you name it - and Led is the only one that is simple, easy to use, and global. We've used it for 4 years and haven't looked back.",
     author: 'Jeremy C.',
   },
   {
-    text: "Deel makes it easy to send payments to international teams. I've been using Deel for more than 3 years now and would never switch! It's a great product.",
+    text: "Led makes it easy to send payments to international teams. I've been using Led for more than 3 years now and would never switch! It's a great product.",
     author: 'Katie R.',
   },
   {
-    text: "I found Deel to be an absolute game-changer. The intuitive platform took the daunting task of understanding international payroll and distilled it into a user-friendly interface that a novice like me could navigate with confidence.",
+    text: "I found Led to be an absolute game-changer. The intuitive platform took the daunting task of understanding international payroll and distilled it into a user-friendly interface that a novice like me could navigate with confidence.",
     author: 'Thomas L.',
   },
   {
-    text: "In two years with Deel, I have not encountered a single issue, and the customer service has been exceptional. The proactive assistance has truly elevated my experience and I couldn't be more satisfied with the overall service.",
+    text: "In two years with Led, I have not encountered a single issue, and the customer service has been exceptional. The proactive assistance has truly elevated my experience and I couldn't be more satisfied with the overall service.",
     author: 'John David Q.',
   },
 ];
@@ -137,7 +137,7 @@ function GlobalTrust() {
         <div className='max-w-[86.5rem] mx-auto px-4'>
           <div className="flex items-start justify-between mb-10 flex-col lg:flex-row gap-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center xl:text-start lg:text-start md:text-start font-bold text-gray-900 max-w-4xl">
-              Why companies around the world prefer <br /> Deel for expanding their team globally.
+              Why companies around the world prefer <br /> Led for expanding their team globally.
             </h2>
             <div className="hidden lg:flex md:flex gap-3 mt-4 lg:mt-0 order-2 lg:order-none self-center">
               <button

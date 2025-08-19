@@ -4,7 +4,6 @@ import React from 'react';
 function ValueProp() {
   return (
     <div className="bg-[#FFFBF4] py-20 md:py-28 lg:py-40 xl:py-56 mt-[-40px]">
-
       <div className="max-w-[86.5rem] mx-auto px-10 flex flex-col lg:flex-row items-center justify-between gap-10">
         
         {/* Left Content - Text and CTA */}
@@ -16,9 +15,11 @@ function ValueProp() {
             Scale globally with <br /> velocity and ease
           </h3>
           <p className="text-gray-700 text-lg mb-6 max-w-xl mx-auto lg:mx-0">
-            Deel is built to scale with organizations of all sizes, from small teams to enterprises of thousands. Whether you want to hire worldwide without opening legal entities, streamline HR for your global team, or pay all types of workers anywhere with consolidated payroll—Deel does it all with full compliance.
+            Led is built to scale with organizations of all sizes, from small teams to enterprises of thousands. 
+            Whether you want to hire worldwide without opening legal entities, streamline HR for your global team, 
+            or pay all types of workers anywhere with consolidated payroll — Led does it all with full compliance.
           </p>
-          <Button label='Get started' />
+          <Button label="Get started" />
         </div>
 
         {/* Right Content - image */}
@@ -28,7 +29,6 @@ function ValueProp() {
             alt="Global Platform 1" 
             className="w-[650px] h-[auto] object-cover" 
           />
-          
         </div>
 
       </div>

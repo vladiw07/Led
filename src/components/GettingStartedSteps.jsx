@@ -6,7 +6,7 @@ function GettingStartedSteps() {
     <div className="bg-[#fef4e3] py-10 px-4 flex flex-col items-center">
       {/* Section Header */}
       <h2 className="text-[60px] font-semibold text-center mb-16 text-[#1b1b1b] leading-tight">
-  Get started with Deel <span className="block">in three easy steps</span>
+  Get started with Led <span className="block">in three easy steps</span>
 </h2>
 
       {/* Content Container */}

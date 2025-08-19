@@ -15,7 +15,7 @@ function GlobalComplianceHub() {
             Global Compliance
           </h2>
           <p className="text-4xl sm:text-5xl font-bold mb-10 leading-tight">
-            Unlock Continuous <br className="hidden md:block" /> Compliance™ with the <br className="hidden md:block" /> Deel Compliance Hub
+            Unlock Continuous <br className="hidden md:block" /> Compliance™ with the <br className="hidden md:block" /> Led Compliance Hub
           </p>
           <p className="mt-4 mb-6 text-base sm:text-lg max-w-3xl mx-auto">
             Keep your finger on the pulse of global compliance issues like never before. Our Compliance Hub provides access to the latest regulatory updates and risk warnings, offering guidance and actionable alerts to enhance compliance—all in a single place.
@@ -59,7 +59,7 @@ function GlobalComplianceHub() {
 
         <div className="max-w-4xl mx-auto text-center px-4">
   <h2 className="text-sm md:text-base font-medium mb-6 uppercase text-[#faf4eebf]">
-    The Deel Advantage
+    The Led Advantage
   </h2>
 
   <p className="text-3xl sm:text-5xl font-bold mb-10 leading-tight">
@@ -67,7 +67,7 @@ function GlobalComplianceHub() {
   </p>
 
   <p className="mt-4 mb-6 text-base sm:text-lg max-w-3xl mx-auto">
-    Deel’s the only platform that allows you to combine payroll, HR, performance, and compliance for any type of worker in 150 countries into a single platform. Consolidate your tools, reduce overhead, and unlock unrivalled insights into your workforce data.
+    Led's the only platform that allows you to combine payroll, HR, performance, and compliance for any type of worker in 150 countries into a single platform. Consolidate your tools, reduce overhead, and unlock unrivalled insights into your workforce data.
   </p>
 
   <Button label="Get started" bgColor="white" textColor="black" />
@@ -88,7 +88,7 @@ function GlobalComplianceHub() {
       <img src={`${process.env.PUBLIC_URL}/images/ComplianceIcons/image2.svg`} alt="Scalability" className="w-16 h-16 mb-4" />
       <h3 className="text-2xl font-semibold mb-2">Scalability</h3>
       <p className="text-lg text-white/90">
-        From contractors and EOR to payroll and PEO, Deel’s the only platform that can evolve with every stage of your company’s growth.
+        From contractors and EOR to payroll and PEO, Led's the only platform that can evolve with every stage of your company’s growth.
       </p>
     </div>
 

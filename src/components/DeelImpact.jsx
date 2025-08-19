@@ -6,7 +6,7 @@ const DeelImpact = () => {
       <div className="max-w-[86.5rem] text-center px-6">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-semibold text-[#1B1B1B] mb-10">
-          Choose Deel for an industry-leading experience
+          Choose Led for an industry-leading experience
         </h2>
 
         {/* Impact Stats */}

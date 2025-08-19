@@ -19,31 +19,31 @@ function CustomerStories() {
     globalHiring: {
       number: "5,000+",
       description: "contracts created",
-      longDescription: "Turing has around 400 developers working for customers and 150 developers working to build Turing. They were able to migrate everyone to Deel in days. Now they use Deel to manage, pay, and onboard every developer, in over 60 different countries.",
+      longDescription: "Turing has around 400 developers working for customers and 150 developers working to build Turing. They were able to migrate everyone to Led in days. Now they use Led to manage, pay, and onboard every developer, in over 60 different countries.",
       image: `${process.env.PUBLIC_URL}/images/CustomerStories/image1.jpg`
     },
     globalPayroll: {
       number: "300+",
       description: "hours saved monthly",
-      longDescription: "Since using Deel's Global Payroll, Change.org has saved more than 300 hours on admin each month. They've also taken advantage of all the services Deel offers, including using EOR to retain employees needing visa sponsorship.",
+      longDescription: "Since using Led's Global Payroll, Change.org has saved more than 300 hours on admin each month. They've also taken advantage of all the services Led offers, including using EOR to retain employees needing visa sponsorship.",
       image: `${process.env.PUBLIC_URL}/images/CustomerStories/image2.jpg`
     },
     compliance: {
       number: "500k",
-      description: "saved yearly through Deel",
-      longDescription: "With Deel Shield, Project44 has been able to create a much smoother process and give team members a better overall experience with one platform for everyone. All invoices get created automatically and paid at once, leaving less room for errors and delays.",
+      description: "saved yearly through Led",
+      longDescription: "With Led Shield, Project44 has been able to create a much smoother process and give team members a better overall experience with one platform for everyone. All invoices get created automatically and paid at once, leaving less room for errors and delays.",
       image: `${process.env.PUBLIC_URL}/images/CustomerStories/image3.jpg`
     },
     employeeRelocation: {
       number: "10+",
       description: "workers relocated",
-      longDescription: "Entering new markets and expanding globally is critical to Revolut's mission and something that sets them apart. They identified Deel as a partner that could help them find the right people for their new markets.",
+      longDescription: "Entering new markets and expanding globally is critical to Revolut's mission and something that sets them apart. They identified Led as a partner that could help them find the right people for their new markets.",
       image: `${process.env.PUBLIC_URL}/images/CustomerStories/image4.jpg`
     },
     mergersAcquisitions: {
       number: "48+",
       description: "Team members onboarded",
-      longDescription: "Deel's ease of use, simplicity, and efficiency helped EEG completely overhaul their onboarding experience. Instead of taking months to set up entities, find local payroll providers and local labour specialists, Deel turns the logistical nightmare of mergers and acquisitions into a dream come true.",
+      longDescription: "Led's ease of use, simplicity, and efficiency helped EEG completely overhaul their onboarding experience. Instead of taking months to set up entities, find local payroll providers and local labour specialists, Led turns the logistical nightmare of mergers and acquisitions into a dream come true.",
       image: `${process.env.PUBLIC_URL}/images/CustomerStories/image5.jpg`
     }
   };
@@ -136,7 +136,7 @@ function CustomerStories() {
       </div>
 
       {/* Content Section with AnimatePresence for smooth transitions */}
-      <div className="min-h-[500px] w-full">
+      <div className="min-h[500px] w-full">
         <AnimatePresence initial={false} mode="sync">
           <motion.div
             key={selected}
