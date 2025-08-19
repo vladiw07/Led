@@ -2,7 +2,7 @@
   "name": "deel-clone",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vladiw07.github.io/deel-clone",
+  "homepage": "https://vladiw07.github.io/Del",
   "dependencies": {
     "cra-template": "1.3.0",
     "daisyui": "^5.0.27",
